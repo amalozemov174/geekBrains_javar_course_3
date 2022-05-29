@@ -74,11 +74,15 @@ public class Car implements Runnable {
         for (int i = 0; i < race.getStages().size(); i++) {
             race.getStages().get(i).go(this);
         }
-        _isFinished = true;
-        if(!_isWin){
-            _isWin = true;
-            System.out.println(this.getName() + " - WIN");
+
+        synchronized (this){
+            _isFinished = true;
+            if(!_isWin){
+                _isWin = true;
+                System.out.println(this.getName() + " - WIN");
+            }
         }
+
     }
 
     public boolean isFinished() {
