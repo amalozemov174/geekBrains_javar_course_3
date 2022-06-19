@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.ListView?>
+<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.demo.ClientController">
+    <padding>
+        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+    </padding>
+
+
+    <HBox fx:id="reloginBox" VBox.vgrow="ALWAYS" visible="false" spacing="5">
+        <Button fx:id="reLoginButton" defaultButton="true" text="Make reAuthentication" onMouseClicked="#reLoginButtonClick"/>
+    </HBox>
+
+    <HBox fx:id="loginBox" VBox.vgrow="ALWAYS">
+        <TextField fx:id="loginField" promptText="Login"></TextField>
+        <PasswordField fx:id="passwordField" promptText="Password"></PasswordField>
+        <Button fx:id="authButton" defaultButton="true" text="Auth" onMouseClicked="#authButtonClick"/>
+    </HBox>
+
+    <HBox fx:id="messageBox" visible="false" spacing="5">
+        <VBox spacing="5">
+        <TextArea fx:id="messageArea" VBox.vgrow="ALWAYS" editable="false"></TextArea>
+        <HBox >
+                <TextField fx:id="textField" VBox.vgrow="ALWAYS"></TextField>
+                <Button fx:id="sendButton" defaultButton="true" text="Send" onMouseClicked="#sendButtonClick"/>
+                <TextField fx:id="newNickField" ></TextField>
+                <Button fx:id="changeNickButton" defaultButton="true" text="changeNick" onMouseClicked="#changeNickButtonClick"/>
+
+        </HBox>
+        </VBox>
+        <ListView fx:id="clientList" minWidth="200" maxWidth="200" onMouseClicked="#selectClient"></ListView>
+    </HBox>
+
+</VBox>
